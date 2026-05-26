@@ -29,7 +29,7 @@
             <!-- Logo -->
             <a href="#" class="font-display font-bold text-xl tracking-wider bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent flex items-center gap-2.5 group">
                 <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brandPurple to-brandFuchsia flex items-center justify-center font-extrabold text-white text-sm shadow-lg group-hover:rotate-12 transition-transform duration-300">BJ</span>
-                <span>BRAULIO<span class="text-brandPurpleLight font-light">.J</span></span>
+                <span>Braulio<span class="text-brandPurpleLight font-light"> Jara</span></span>
             </a>
             
             <!-- Desktop Links -->
@@ -536,7 +536,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="border-t border-zinc-950 bg-black/60 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-2">
@@ -545,7 +544,7 @@
             </div>
             
             <p class="text-xs text-zinc-500 text-center md:text-left">
-                &copy; 2026 Braulio Agustin Jara. Todos los derechos reservados. Desarrollado con Tailwind CSS v4 y un diseño morado premium.
+                &copy; 2026 Braulio Agustin Jara. Todos los derechos reservados. Desarrollado con Tailwind CSS v4.
             </p>
 
             <!-- Social links inside footer -->
@@ -563,9 +562,7 @@
         </div>
     </footer>
 
-    <!-- Interactive Logic Script -->
     <script>
-        // Mobile menu toggle logic
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -573,7 +570,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking menu anchors
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -581,7 +577,6 @@
             });
         });
 
-        // Scroll listener to make header background slightly darker
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
