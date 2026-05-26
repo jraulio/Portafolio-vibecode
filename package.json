@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-braulio-jara",
+  "version": "1.0.0",
+  "description": "Portfolio profesional de Braulio Agustin Jara",
+  "main": "index.html",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify"
+  },
+  "keywords": [
+    "portfolio",
+    "tailwind",
+    "javascript"
+  ],
+  "author": "Braulio Agustin Jara",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.18"
+  }
+}

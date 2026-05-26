@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050209;
+}
+::-webkit-scrollbar-thumb {
+    background: #2e1065;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #4c1d95;
+}
+
+/* Ambient glow background gradients */
+.glow-blob {
+    filter: blur(130px);
+    opacity: 0.14;
+    pointer-events: none;
+    position: absolute;
+    border-radius: 50%;
+}
+
+/* Glassmorphism custom classes */
+.glass-card {
+    background: rgba(14, 8, 24, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(139, 92, 246, 0.08);
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-nav {
+    background: rgba(5, 2, 9, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.05);
+}
+
+/* Interactive technology cards with custom gradients and hover states */
+.tech-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+.tech-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.02));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+.tech-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Purple and Fuchsia hover borders */
+.hover-glow-purple:hover::before {
+    background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.5), rgba(139, 92, 246, 0.1));
+}
+.hover-glow-fuchsia:hover::before {
+    background: linear-gradient(to bottom right, rgba(217, 70, 239, 0.5), rgba(217, 70, 239, 0.1));
+}
