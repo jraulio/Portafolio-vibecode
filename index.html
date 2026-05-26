@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braulio Agustin Jara | Portfolio - Software & Electrónica</title>
+    <meta name="description" content="Portfolio profesional de Braulio Agustin Jara - Especialista en Desarrollo de Software (Python, SQL, Wollok) y Electrónica (Diseño de Circuitos, Memorias RAM, AutoCAD). Conectando código y hardware con un diseño premium en tonos morados.">
+    <meta name="keywords" content="Braulio Agustin Jara, Braulio Jara, Portfolio, Desarrollo de Software, Electrónica, Python, SQL, Wollok, Diseño de Circuitos, RAM, AutoCAD, Tailwind CSS v4, Morado Oscuro">
+    <meta name="author" content="Braulio Agustin Jara">
+    
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v4 Browser CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <style type="text/tailwindcss">
+        @theme {
+            --color-darkBg: #050209; /* Deep purple-black background */
+            --color-darkCard: rgba(14, 8, 25, 0.7);
+            --color-darkBorder: rgba(139, 92, 246, 0.08);
+            --color-brandPurple: #8b5cf6; /* Violet / Purple primary */
+            --color-brandPurpleLight: #c084fc; /* Light purple */
+            --color-brandLavender: #e9d5ff; /* Lavender text accent */
+            --color-brandFuchsia: #d946ef; /* Fuchsia accent */
+            
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Outfit', sans-serif;
+            
+            --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            --animate-float: float 6s ease-in-out infinite;
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-12px); }
+            }
+        }
+    </style>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050209;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e1065;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4c1d95;
+        }
+
+        /* Ambient glow background gradients */
+        .glow-blob {
+            filter: blur(130px);
+            opacity: 0.14;
+            pointer-events: none;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        /* Glassmorphism custom classes */
+        .glass-card {
+            background: rgba(14, 8, 24, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.08);
+            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-nav {
+            background: rgba(5, 2, 9, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.05);
+        }
+        
+        /* Interactive technology cards with custom gradients and hover states */
+        .tech-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.02));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: all 0.4s;
+        }
+        .tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Purple and Fuchsia hover borders */
+        .hover-glow-purple:hover::before {
+            background: linear-gradient(to bottom right, rgba(139, 92, 246, 0.5), rgba(139, 92, 246, 0.1));
+        }
+        .hover-glow-fuchsia:hover::before {
+            background: linear-gradient(to bottom right, rgba(217, 70, 239, 0.5), rgba(217, 70, 239, 0.1));
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-zinc-100 font-sans antialiased min-h-screen relative overflow-x-hidden selection:bg-brandPurple/30 selection:text-white">
+
+    <!-- Background Glow Blobs -->
+    <div class="glow-blob bg-brandPurple w-[600px] h-[600px] top-[-150px] left-[-200px] animate-pulse-slow"></div>
+    <div class="glow-blob bg-brandFuchsia w-[500px] h-[500px] top-[25%] right-[-150px] animate-pulse-slow" style="animation-delay: 2.5s;"></div>
+    <div class="glow-blob bg-brandPurple w-[550px] h-[550px] bottom-[15%] left-[-150px] animate-pulse-slow" style="animation-delay: 5s;"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="font-display font-bold text-xl tracking-wider bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent flex items-center gap-2.5 group">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brandPurple to-brandFuchsia flex items-center justify-center font-extrabold text-white text-sm shadow-lg group-hover:rotate-12 transition-transform duration-300">BJ</span>
+                <span>BRAULIO<span class="text-brandPurpleLight font-light">.J</span></span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#inicio" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 py-2 relative group">
+                    Inicio
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandPurple transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                <a href="#sobre-mi" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 py-2 relative group">
+                    Sobre Mí
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandPurple transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                <a href="#tecnologias" class="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 py-2 relative group">
+                    Tecnologías
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brandFuchsia transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </a>
+                
+                <div class="w-[1px] h-5 bg-zinc-800/80"></div>
+
+                <!-- GitHub and LinkedIn Icons Header -->
+                <div class="flex items-center gap-3.5">
+                    <a href="https://github.com/jraulio" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800 text-zinc-400 hover:text-brandPurple hover:border-brandPurple/40 transition-all duration-300 shadow-sm flex items-center justify-center" aria-label="GitHub de Braulio Jara">
+                        <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800 text-zinc-400 hover:text-brandFuchsia hover:border-brandFuchsia/40 transition-all duration-300 shadow-sm flex items-center justify-center" aria-label="LinkedIn de Braulio Jara">
+                        <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="#contacto" class="px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-zinc-800 hover:border-brandPurple bg-zinc-900/40 hover:bg-brandPurple/10 text-zinc-300 hover:text-white transition-all duration-300 shadow-sm">
+                    Contactar
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none" aria-label="Abrir Menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-zinc-800/80 px-6 py-5 flex flex-col gap-4">
+            <a href="#inicio" class="text-zinc-300 hover:text-white py-2 block font-medium">Inicio</a>
+            <a href="#sobre-mi" class="text-zinc-300 hover:text-white py-2 block font-medium">Sobre Mí</a>
+            <a href="#tecnologias" class="text-zinc-300 hover:text-white py-2 block font-medium">Tecnologías</a>
+            
+            <div class="h-[1px] bg-zinc-800/80 my-1"></div>
+            
+            <div class="flex items-center gap-4 py-2">
+                <span class="text-xs text-zinc-500 uppercase tracking-wider font-semibold">Redes:</span>
+                <a href="https://github.com/jraulio" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-brandPurple text-sm flex items-center gap-1.5 font-medium transition-colors">
+                    GitHub
+                </a>
+                <span class="text-zinc-700">|</span>
+                <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-brandFuchsia text-sm flex items-center gap-1.5 font-medium transition-colors">
+                    LinkedIn
+                </a>
+            </div>
+
+            <a href="#contacto" class="w-full text-center px-4 py-3 rounded-xl text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-brandPurple to-brandFuchsia text-white shadow-md">Contactar</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-6 pt-28 pb-16 relative z-10">
+
+        <!-- HERO SECTION -->
+        <section id="inicio" class="min-h-[85vh] flex flex-col justify-center items-center md:items-start grid md:grid-cols-12 gap-12 py-12">
+            <!-- Hero Text -->
+            <div class="md:col-span-7 flex flex-col justify-center text-center md:text-left">
+                <!-- Notification pill -->
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-card border border-brandPurple/20 self-center md:self-start mb-6">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandFuchsia opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brandFuchsia"></span>
+                    </span>
+                    <span class="text-xs font-bold tracking-wider text-brandPurpleLight uppercase">Desarrollo de Software & Electrónica</span>
+                </div>
+
+                <!-- Giant Heading -->
+                <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight leading-[1.1] mb-6">
+                    Haciendo que la electrónica y el <br class="hidden sm:inline">
+                    <span class="bg-gradient-to-r from-brandPurpleLight via-fuchsia-400 to-brandPurple bg-clip-text text-transparent">código trabajen en armonía</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-zinc-400 text-base sm:text-lg max-w-xl mx-auto md:mx-0 mb-8 leading-relaxed">
+                    Hola, soy <strong class="text-zinc-100 font-semibold">Braulio Agustin Jara</strong>. Creo sistemas interactivos robustos combinando la precisión del hardware con la escalabilidad y potencia del desarrollo de software de alta calidad.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
+                    <a href="#tecnologias" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brandPurple to-brandFuchsia font-semibold text-sm hover:shadow-[0_0_30px_rgba(139,92,246,0.45)] hover:scale-[1.02] transition-all duration-300 text-center flex items-center justify-center gap-2 group">
+                        Ver Tecnologías
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="#sobre-mi" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card font-semibold text-sm hover:bg-zinc-900/50 hover:border-brandPurple/20 transition-all duration-300 text-center">
+                        Conocer más
+                    </a>
+                </div>
+
+                <!-- Social quick connect -->
+                <div class="mt-8 flex items-center justify-center md:justify-start gap-4 text-xs text-zinc-500 font-semibold tracking-wider">
+                    <span>CONECTAR:</span>
+                    <a href="https://github.com/jraulio" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-zinc-400 hover:text-brandPurple transition-colors group">
+                        <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <span class="text-zinc-800">/</span>
+                    <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-zinc-400 hover:text-brandFuchsia transition-colors group">
+                        <svg class="w-4.5 h-4.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image/Graphic -->
+            <div class="md:col-span-5 flex justify-center items-center relative">
+                <div class="relative w-full max-w-[380px] aspect-square rounded-[2rem] overflow-hidden glass-card p-3 border border-brandPurple/10 shadow-2xl animate-float">
+                    <!-- Overlay to tint image with purple tone -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brandPurple/30 to-brandFuchsia/25 z-10 mix-blend-color"></div>
+                    <div class="absolute inset-0 bg-brandPurple/5 z-0"></div>
+                    <img src="./tech_illustration.png" alt="Ilustración tecnológica de hardware y código" class="w-full h-full object-cover rounded-[1.5rem] relative z-0 filter drop-shadow-[0_12px_25px_rgba(0,0,0,0.65)] hue-rotate-15">
+                </div>
+                <!-- Extra decorative floating badges -->
+                <div class="absolute -top-3 -right-3 w-12 h-12 rounded-xl bg-brandPurple/20 backdrop-blur-md border border-brandPurple/40 flex items-center justify-center text-white shadow-lg animate-pulse-slow">
+                    <svg class="w-5 h-5 text-brandLavender" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <div class="absolute -bottom-3 -left-3 w-14 h-14 rounded-xl bg-brandFuchsia/20 backdrop-blur-md border border-brandFuchsia/40 flex items-center justify-center text-white shadow-lg animate-pulse-slow" style="animation-delay: 4s;">
+                    <svg class="w-5 h-5 text-brandPurpleLight" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MÍ SECTION -->
+        <section id="sobre-mi" class="py-24 border-t border-zinc-900/60">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <!-- Info Section Left -->
+                <div class="md:col-span-7 flex flex-col">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-8 h-[2px] bg-brandPurple"></span>
+                        <span class="text-xs font-bold tracking-widest text-brandPurpleLight uppercase">Biografía</span>
+                    </div>
+                    
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mb-6">
+                        Sobre Mí
+                    </h2>
+                    
+                    <div class="space-y-6 text-zinc-400 leading-relaxed text-sm sm:text-base">
+                        <p>
+                            Mi pasión y enfoque profesional radican en la unión del <strong class="text-zinc-200">desarrollo de software de alta calidad</strong> y el rigor técnico de la <strong class="text-zinc-200">ingeniería electrónica</strong>. A lo largo de mi formación, he comprobado que el software inteligente es el que dota de alma al hardware, y que comprender los circuitos impresos a nivel físico permite optimizar de manera exponencial las líneas de código del sistema.
+                        </p>
+                        <p>
+                            En el ámbito de desarrollo, construyo aplicaciones con lenguajes robustos y modulares, y estructuro bases de datos sólidas y optimizadas, aplicando siempre buenas prácticas como el código limpio (Clean Code) y el desarrollo guiado por pruebas (TDD). En el bloque de electrónica, tengo experiencia modelando componentes en AutoCAD, simulando y diseñando layouts de PCB en KiCad/Altium, y analizando arquitecturas lógicas de control de memorias RAM.
+                        </p>
+                        <p>
+                            Esta mentalidad híbrida me permite concebir proyectos tecnológicos de forma integral: desde la soldadura del circuito impreso y el microcontrolador hasta la estructuración de la API que almacena y consume la información en la nube.
+                        </p>
+                    </div>
+
+                    <!-- Modern stats grid -->
+                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 pt-6 border-t border-zinc-900">
+                        <div>
+                            <div class="font-display font-bold text-3xl text-brandPurpleLight">2+</div>
+                            <div class="text-xs text-zinc-500 uppercase tracking-wider font-bold">Años de Trayectoria</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-3xl text-brandFuchsia">15+</div>
+                            <div class="text-xs text-zinc-500 uppercase tracking-wider font-bold">Proyectos Listos</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-3xl text-brandLavender">Dual-Core</div>
+                            <div class="text-xs text-zinc-500 uppercase tracking-wider font-bold">Software + Hardware</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic/Values Card Right -->
+                <div class="md:col-span-5">
+                    <div class="glass-card rounded-3xl p-8 border border-white/5 shadow-xl relative overflow-hidden group">
+                        <!-- Top Accent line -->
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-brandPurple via-fuchsia-500 to-brandPurpleLight animate-pulse"></div>
+                        
+                        <h3 class="font-display font-bold text-lg text-white mb-6">Valores de Ingeniería</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Value item 1 -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brandPurple/10 border border-brandPurple/20 flex items-center justify-center text-brandPurpleLight flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-zinc-200">Enfoque Analítico Riguroso</h4>
+                                    <p class="text-xs text-zinc-400 mt-1">Capacidad para desarmar problemas complejos en bloques lógicos ordenados y desarrollar código limpio y modular.</p>
+                                </div>
+                            </div>
+
+                            <!-- Value item 2 -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brandFuchsia/10 border border-brandFuchsia/20 flex items-center justify-center text-brandFuchsia flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-zinc-200">Pasión por el Hardware Tangible</h4>
+                                    <p class="text-xs text-zinc-400 mt-1">Conciencia del comportamiento de señales eléctricas y control en tiempo real, minimizando fallas de sincronización.</p>
+                                </div>
+                            </div>
+
+                            <!-- Value item 3 -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brandPurple/10 border border-brandFuchsia/20 flex items-center justify-center text-brandPurpleLight flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-zinc-200">Garantía de Robustez y Testeo</h4>
+                                    <p class="text-xs text-zinc-400 mt-1">Convicción en la importancia del testeo unitario, simulación electrónica y verificación estricta de límites.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini quick links badge in card -->
+                        <div class="mt-8 pt-6 border-t border-zinc-900/80 flex items-center justify-between">
+                            <span class="text-xs text-zinc-500 font-bold tracking-wider uppercase">Contactar en:</span>
+                            <div class="flex items-center gap-3">
+                                <a href="https://github.com/jraulio" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-zinc-400 hover:text-brandPurple hover:border-brandPurple/20 transition-all flex items-center gap-1">
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-zinc-900/60 border border-zinc-800 text-zinc-400 hover:text-brandFuchsia hover:border-brandFuchsia/20 transition-all flex items-center gap-1">
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGÍAS SECTION -->
+        <section id="tecnologias" class="py-24 border-t border-zinc-900/60">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 mb-4">
+                    <span class="w-8 h-[2px] bg-brandPurple"></span>
+                    <span class="text-xs font-bold tracking-widest text-brandPurpleLight uppercase">Stack Tecnológico</span>
+                    <span class="w-8 h-[2px] bg-brandPurple"></span>
+                </div>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mb-6">
+                    Mis Especialidades
+                </h2>
+                <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                    Mi stack está clasificado en dos bloques específicos, permitiendo balancear el diseño lógico en código de software y la implementación estructural de hardware electrónico.
+                </p>
+            </div>
+
+            <!-- Two Blocks Grid -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- BLOCK 1: DESARROLLO DE SOFTWARE -->
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-3 mb-8 pb-3 border-b border-zinc-800/80">
+                        <div class="w-10 h-10 rounded-xl bg-brandPurple/10 border border-brandPurple/30 flex items-center justify-center text-brandPurple">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-white">Desarrollo de Software</h3>
+                            <p class="text-xs text-zinc-500">Lógica de aplicación, procesamiento de datos y arquitecturas escalables</p>
+                        </div>
+                    </div>
+
+                    <!-- Tech Cards Stack -->
+                    <div class="space-y-6">
+                        <!-- Python Card -->
+                        <div class="tech-card hover-glow-purple glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandPurple/5 blur-2xl group-hover:bg-brandPurple/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandPurple/10 border border-brandPurple/20 flex items-center justify-center text-brandPurpleLight flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- Python SVG -->
+                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.002 2c-5.522 0-5 1.5-5 3.5v2.5H12v1H7v2.5c0 2 1 3.5 3.5 3.5h1.5v-1.5c0-1.5 1-2.5 2.5-2.5H17V6.5c0-2-1.5-3.5-3.5-3.5h-1.498zM8.5 4.5c.414 0 .75.336.75.75s-.336.75-.75.75a.75.75 0 1 1 0-1.5z" opacity="0.95"/>
+                                        <path d="M11.998 22c5.522 0 5-1.5 5-3.5V16H12v-1h5v-2.5c0-2-1-3.5-3.5-3.5H12v1.5c0 1.5-1 2.5-2.5 2.5H7v4c0 2 1.5 3.5 3.5 3.5h1.498zM15.5 19.5c.414 0 .75.336.75.75s-.336.75-.75.75a.75.75 0 1 1 0-1.5z" opacity="0.7"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">Python</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandPurple/25 text-brandPurpleLight tracking-wider uppercase border border-brandPurple/10">Avanzado</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Dominio en modularización, automatización de tareas y desarrollo de scripts estructurados. Capacidad de diseñar microservicios o interfaces de comunicación serial para recolectar, formatear y analizar información de hardware externo de manera robusta.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Programación de Objetos</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Automatización</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Análisis de Datos</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Scripting</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SQL Card -->
+                        <div class="tech-card hover-glow-fuchsia glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandFuchsia/5 blur-2xl group-hover:bg-brandFuchsia/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandFuchsia/10 border border-brandFuchsia/20 flex items-center justify-center text-brandFuchsia flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- DB Icon -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">SQL</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandFuchsia/25 text-brandFuchsia tracking-wider uppercase border border-brandFuchsia/10">Intermedio</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Estructuración y normalización rigurosa de bases de datos relacionales. Habilidad para diseñar diagramas de entidad-relación, formular sentencias de consulta optimizadas y gestionar llaves foráneas y restricciones para asegurar la consistencia.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">PostgreSQL</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Modelado Relacional</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Consultas Complejas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wollok Card -->
+                        <div class="tech-card hover-glow-purple glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandPurple/5 blur-2xl group-hover:bg-brandPurple/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandPurple/10 border border-brandPurple/20 flex items-center justify-center text-brandPurpleLight flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- Paradigm/Coding Icon -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.172V5L8 4z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">Wollok</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandPurple/25 text-brandPurpleLight tracking-wider uppercase border border-brandPurple/10">Teórico</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Sólidos cimientos conceptuales en el paradigma de programación orientado a objetos. Capacidad excepcional para aplicar polimorfismo puro, herencia frente a composición, y metodologías ágiles de testing unitario exhaustivo.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Paradigma de Objetos</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Polimorfismo</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Testeo de Objetos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOCK 2: ELECTRÓNICA -->
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-3 mb-8 pb-3 border-b border-zinc-800/80">
+                        <div class="w-10 h-10 rounded-xl bg-brandFuchsia/10 border border-brandFuchsia/30 flex items-center justify-center text-brandFuchsia">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-white">Electrónica & Hardware</h3>
+                            <p class="text-xs text-zinc-500">Diseño estructural, temporización digital y simulación de circuitos físicos</p>
+                        </div>
+                    </div>
+
+                    <!-- Tech Cards Stack -->
+                    <div class="space-y-6">
+                        <!-- Diseño de Circuitos Card -->
+                        <div class="tech-card hover-glow-fuchsia glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandFuchsia/5 blur-2xl group-hover:bg-brandFuchsia/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandFuchsia/10 border border-brandFuchsia/20 flex items-center justify-center text-brandFuchsia flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- Circuit Icon -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-16v4m0 4h.01M4 12h2m2 0h2m0 0v2m0-6V6m6 6h2m-2-2v4m-8-2h6"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">Diseño de Circuitos</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandFuchsia/25 text-brandFuchsia tracking-wider uppercase border border-brandFuchsia/10">Simulación & Ruteo</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Diseño de diagramas esquemáticos y trazado físico de placas de circuito impreso (PCBs). Habilidad para seleccionar componentes, simular circuitos electrónicos bajo SPICE y comprender los efectos parásitos de las señales de alta frecuencia.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">KiCad / Altium</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">SPICE Simulación</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Diseño PCB</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Prototipado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Memorias RAM Card -->
+                        <div class="tech-card hover-glow-purple glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandPurple/5 blur-2xl group-hover:bg-brandPurple/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandPurple/10 border border-brandPurple/20 flex items-center justify-center text-brandPurpleLight flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- Memory/Hardware Architecture Icon -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">Memorias RAM & Arquitectura</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandPurple/25 text-brandPurpleLight tracking-wider uppercase border border-brandPurple/10">Sistemas Digitales</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Profundo entendimiento de la jerarquía de memorias e interfaces lógicas de control. Dominio de los buses de direcciones y datos, ciclos de lectura/escritura en celdas de memoria dinámica (DRAM) y estática (SRAM), y acoples de impedancia.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Ciclos de Lectura / Escritura</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Buses de Sincronía</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Hardware Digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AutoCAD Card -->
+                        <div class="tech-card hover-glow-fuchsia glass-card rounded-2xl p-6 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-24 h-24 rounded-full bg-brandFuchsia/5 blur-2xl group-hover:bg-brandFuchsia/15 transition-all duration-300"></div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-brandFuchsia/10 border border-brandFuchsia/20 flex items-center justify-center text-brandFuchsia flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <!-- AutoCAD Icon -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-grow">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="font-display font-bold text-lg text-white">AutoCAD</h4>
+                                        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-brandFuchsia/25 text-brandFuchsia tracking-wider uppercase border border-brandFuchsia/10">Planos & Modelado</span>
+                                    </div>
+                                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                                        Creación y ajuste preciso de planos de montaje mecánico y de componentes bidimensionales. Habilidad para diseñar o adecuar planos de gabinetes protectores que aseguren la contención física exacta de las placas de circuito electrónico.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Planos de Montaje</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Estructuración 2D / 3D</span>
+                                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800/80 text-zinc-400">Corte & Gabinetes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contacto" class="py-24 border-t border-zinc-900/60">
+            <div class="glass-card rounded-3xl p-8 md:p-12 border border-white/5 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-brandPurple/5 blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-brandFuchsia/5 blur-3xl"></div>
+                
+                <div class="relative z-10 grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-8 h-[2px] bg-brandPurple"></span>
+                            <span class="text-xs font-bold tracking-widest text-brandPurpleLight uppercase">Contacto</span>
+                        </div>
+                        <h2 class="font-display font-extrabold text-3xl text-white mb-4">
+                            ¿Hablamos sobre tu próximo proyecto tecnológico?
+                        </h2>
+                        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg">
+                            Ya sea que necesites implementar scripts robustos y base de datos, simular y rutear una placa de circuito, o conceptualizar una arquitectura integrada, ¡estaré encantado de que colaboremos!
+                        </p>
+                    </div>
+
+                    <div class="md:col-span-5 flex flex-col gap-4 sm:flex-row md:flex-col justify-center items-stretch">
+                        <a href="mailto:jarabraulioa@hotmail.com" class="px-6 py-4 rounded-xl bg-zinc-950 border border-zinc-900 hover:border-brandPurple text-center text-sm font-semibold flex items-center justify-center gap-3 text-zinc-300 hover:text-white transition-all duration-300 group shadow-md">
+                            <svg class="w-5 h-5 text-brandPurpleLight group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            jarabraulioa@hotmail.com
+                        </a>
+                        
+                        <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="px-6 py-4 rounded-xl bg-gradient-to-r from-brandPurple to-brandFuchsia text-center text-sm font-semibold flex items-center justify-center gap-3 text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.35)] transition-all duration-300 shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            Agendar Reunión Técnica
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-950 bg-black/60 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brandPurple to-brandFuchsia flex items-center justify-center font-extrabold text-white text-xs shadow-md">BJ</span>
+                <span class="font-display font-bold text-sm tracking-widest text-zinc-400">BRAULIO<span class="text-brandPurpleLight font-light">.J</span></span>
+            </div>
+            
+            <p class="text-xs text-zinc-500 text-center md:text-left">
+                &copy; 2026 Braulio Agustin Jara. Todos los derechos reservados. Desarrollado con Tailwind CSS v4 y un diseño morado premium.
+            </p>
+
+            <!-- Social links inside footer -->
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/jraulio" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-500 hover:text-brandPurple transition-colors flex items-center gap-1">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/in/braulio-agustin-jara-103563142/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-500 hover:text-brandFuchsia transition-colors flex items-center gap-1">
+                    LinkedIn
+                </a>
+                <a href="mailto:jarabraulioa@hotmail.com" class="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">
+                    Email
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Mobile menu toggle logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking menu anchors
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll listener to make header background slightly darker
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-xl', 'bg-darkBg/95');
+                header.classList.remove('bg-darkBg/80');
+            } else {
+                header.classList.remove('shadow-xl', 'bg-darkBg/95');
+                header.classList.add('bg-darkBg/80');
+            }
+        });
+    </script>
+</body>
+</html>
